@@ -1,6 +1,6 @@
 app_name = "zajel_general"
 app_title = "Zajel General"
-app_publisher = "Hussain Farooq"
+app_publisher = "Hussain"
 app_description = "Zajel General"
 app_email = "hussain@tabrah-holding.com"
 app_license = "mit"
@@ -26,7 +26,7 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/zajel_general/css/zajel_general.css"
-# app_include_js = "/assets/zajel_general/js/zajel_general.js"
+# app_include_js = "/assets/zajel_general/js/entity-dashboard.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/zajel_general/css/zajel_general.css"
@@ -43,7 +43,9 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+	"Salary Structure" : "public/js/salary_structure_custom.js",
+    }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -137,24 +139,39 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
+doc_events = {
+    "Purchase Order": {
+        "validate": "zajel_general.custom.purchase_order_custom.validate"
+    },
+    "Purchase Receipt": {
+        "validate": "zajel_general.custom.purchase_order_custom.validate"
+    },
+    "Purchase Invoice": {
+        "validate": "zajel_general.custom.purchase_order_custom.validate"
+    },
+    "Material Request": {
+        "validate": "zajel_general.custom.purchase_order_custom.validate"
+    },
+    # "Salary Slip": {
+    #     "validate": "zajel_general.custom.salary_slip_custom.apply_annual_leave_deduction"
+    # },
 # 	"*": {
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
 # 	}
-# }
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"zajel_general.tasks.all"
 # 	],
-# 	"daily": [
-# 		"zajel_general.tasks.daily"
-# 	],
+	"daily": [
+		"zajel_general.tasks.expire_old_signatures",
+	],
 # 	"hourly": [
 # 		"zajel_general.tasks.hourly"
 # 	],
@@ -164,7 +181,7 @@ app_license = "mit"
 # 	"monthly": [
 # 		"zajel_general.tasks.monthly"
 # 	],
-# }
+}
 
 # Testing
 # -------
@@ -241,9 +258,4 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-
-# Translation
-# ------------
-# List of apps whose translatable strings should be excluded from this app's translations.
-# ignore_translatable_strings_from = []
 
