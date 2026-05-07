@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "employee_type",
   "employee",
   "certificate_type",
   "approved_by",
@@ -80,9 +81,9 @@
   },
   {
    "fieldname": "employee",
-   "fieldtype": "Link",
+   "fieldtype": "Dynamic Link",
    "label": "Employee",
-   "options": "Employee"
+   "options": "employee_type"
   },
   {
    "fieldname": "amended_from",
@@ -104,17 +105,23 @@
    "fieldname": "letter_head",
    "fieldtype": "Data",
    "label": "Letter Head"
+  },
+  {
+   "fieldname": "employee_type",
+   "fieldtype": "Select",
+   "label": "Employee Type",
+   "options": "\nEmployee\nJob Applicant"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-05 20:18:27.958082",
+ "modified": "2026-05-07 11:48:58.888839",
  "modified_by": "Administrator",
  "module": "Zajel General",
  "name": "Certificate Request",
- "naming_rule": "Expression",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
