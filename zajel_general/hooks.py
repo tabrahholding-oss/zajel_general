@@ -149,9 +149,9 @@ doc_events = {
     "Purchase Invoice": {
         "validate": "zajel_general.custom.purchase_order_custom.validate"
     },
-    "Material Request": {
-        "validate": "zajel_general.custom.purchase_order_custom.validate"
-    },
+    # "Material Request": {
+    #     "validate": "zajel_general.custom.purchase_order_custom.validate"
+    # },
     # "Salary Slip": {
     #     "validate": "zajel_general.custom.salary_slip_custom.apply_annual_leave_deduction"
     # },
